@@ -50,7 +50,7 @@ describe('Form Validator', () => {
     // TODO: Check of errors array niet leeg is
     // Hint: Je moet eerst beforeEach invullen!
     expect(result.isValid).toBe(false);
-    expect(errors.length).toBeGreaterThan(0); // Deze test faalt! Vervang met je eigen test
+    expect(result.errors.length).toBeGreaterThan(0); // Deze test faalt! Vervang met je eigen test
   });
 
 });
