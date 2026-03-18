@@ -44,11 +44,12 @@ describe('Form Validator', () => {
 
   test('validateForm geeft errors bij ongeldig formulier', () => {
     testData.email = 'foute email';
-    const errors = validateForm(testData);
+    const result = validateForm(testData);
     // TODO: Gebruik de testData uit beforeEach
     // TODO: Verander testData.email naar iets ongeldig
     // TODO: Check of errors array niet leeg is
     // Hint: Je moet eerst beforeEach invullen!
+    expect(result.isValid).toBe(false);
     expect(errors.length).toBeGreaterThan(0); // Deze test faalt! Vervang met je eigen test
   });
 
