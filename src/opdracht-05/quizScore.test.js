@@ -12,6 +12,13 @@ describe('Quiz Score', () => {
     //   { question: 4, isCorrect: true, points: 10 },
     //   { question: 5, isCorrect: true, points: 10 }
     // ];
+    quizAnswers = [
+      { question: 1, isCorrect: true, points: 10 },
+      { question: 2, isCorrect: true, points: 10 },
+      { question: 3, isCorrect: false, points: 0 },
+      { question: 4, isCorrect: true, points: 10 },
+      { question: 5, isCorrect: true, points: 10 }
+    ]
   });
 
   // VOORBEELD - Deze test is al ingevuld
@@ -27,37 +34,50 @@ describe('Quiz Score', () => {
     // TODO: Gebruik quizAnswers uit beforeEach
     // TODO: Met 4 van 5 goed moet het 80% zijn
     // Hint: Je moet eerst beforeEach invullen!
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+   expect(calculatePercentage(quizAnswers)).toBe(80); // Deze test faalt! Vervang met je eigen test
   });
 
-  test('isPassed geeft true bij 60% of hoger', () => {
+  test('isPassed geeft true bij 60% or hoger', () => {
     // TODO: Gebruik quizAnswers (80% goed)
     // TODO: Check of isPassed true teruggeeft
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(isPassed(quizAnswers)).toBe(true); // Deze test faalt! Vervang met je eigen test
   });
 
   test('isPassed geeft false bij lager dan 60%', () => {
     // TODO: Maak nieuwe answers array met 50% goed
+    const answers = [
+      { question: 1, isCorrect: true, points: 10},
+      { question: 2, isCorrect: true, points: 10},
+      { question: 3, isCorrect: false, points: 0},
+      { question: 4, isCorrect: false, points: 0}
+    ]
     // TODO: Check of isPassed false teruggeeft
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(isPassed(answers)).toBe(false); // Deze test faalt! Vervang met je eigen test
   });
 
   test('getGrade geeft Excellent bij 90%+', () => {
     // TODO: Maak answers met 90% of meer goed
+    const answers = [
+      { question: 1, isCorrect: true, points: 10 },
+      { question: 2, isCorrect: true, points: 10 },
+      { question: 3, isCorrect: true, points: 10 },
+      { question: 4, isCorrect: true, points: 10 },
+      { question: 5, isCorrect: true, points: 10 }
+    ]
     // TODO: Check of getGrade 'Excellent' teruggeeft
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(getGrade(answers)).toBe('Excellent'); // Deze test faalt! Vervang met je eigen test
   });
 
   test('getGrade geeft Goed bij 75-89%', () => {
     // TODO: Gebruik quizAnswers (80% goed)
     // TODO: Check of getGrade 'Goed' teruggeeft
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(getGrade(quizAnswers)).toBe('Goed'); // Deze test faalt! Vervang met je eigen test
   });
 
   test('countWrongAnswers telt foute antwoorden', () => {
     // TODO: Gebruik quizAnswers (1 fout antwoord)
     // TODO: Check of countWrongAnswers 1 teruggeeft
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(countWrongAnswers(quizAnswers)).toBe(1); // Deze test faalt! Vervang met je eigen test
   });
 
 });
